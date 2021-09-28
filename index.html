@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/design.css">
+    <script src="./JS/tipos-cifrados.js"></script>
+    <title>Cifrados</title>
+</head>
+<body>
+    <form class="formVigenere">
+        <span class="h1v"><h1>VIGGENERE</h1> 
+            <br> Frase a des/encriptar:</span>
+        <textarea class="textareaV" id="InputText" rows="5"></textarea> 
+        <span class="h1v">Clave</span> 
+        <input class="TextV" id="PassWord" type="text" /> 
+        <input class="ButtonV" id="Encrypt" onclick="RebuildString(Encriptar(true))" type="button" value="Cifrar" /> 
+        <br><br>
+        <input class="ButtonV" id="UnEncrypt" onclick="RebuildString(Encriptar(false))" type="button" value="Descifrar" /> 
+        <span class="h1v">Resultado</span>
+        <textarea class="textareaV" id="Result" rows="5"></textarea></form>
+
+    <form class="formCesar">
+        <span class="h1v"><h1>CESAR</h1> 
+            <br> Frase a des/encriptar:</span>
+        <textarea class="textareaV" id="cadena" rows="5"></textarea> 
+        <span class="h1v">Clave</span> 
+        <input class="TextV" id="PassWord" type="text" /> 
+        <input class="ButtonV" id="Encrypt" onclick="cifrar()" type="button" value="Cifrar" /> 
+        <br><br>
+        <input class="ButtonV" id="UnEncrypt" onclick="descifrar()" type="button" value="Descifrar" /> 
+        <span class="h1v">Resultado</span>
+        <textarea class="textareaV" id="resultado" rows="5"></textarea></form>
+</body>
+</html>

@@ -5,32 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/design.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="./JS/tipos-cifrados.js"></script>
     <title>Cifrados</title>
 </head>
-<body>
-    <form class="formVigenere">
-        <span class="h1v"><h1>VIGGENERE</h1> 
-            <br> Frase a des/encriptar:</span>
-        <textarea class="textareaV" id="InputText" rows="5"></textarea> 
-        <span class="h1v">Clave</span> 
-        <input class="TextV" id="PassWord" type="text" /> 
-        <input class="ButtonV" id="Encrypt" onclick="RebuildString(Encriptar(true))" type="button" value="Cifrar" /> 
-        <br><br>
-        <input class="ButtonV" id="UnEncrypt" onclick="RebuildString(Encriptar(false))" type="button" value="Descifrar" /> 
-        <span class="h1v">Resultado</span>
-        <textarea class="textareaV" id="Result" rows="5"></textarea></form>
-
-    <form class="formCesar">
-        <span class="h1v"><h1>CESAR</h1> 
-            <br> Frase a des/encriptar:</span>
-        <textarea class="textareaV" id="cadena" rows="5"></textarea> 
-        <span class="h1v">Clave</span> 
-        <input class="TextV" id="PassWord" type="text" /> 
-        <input class="ButtonV" id="Encrypt" onclick="cifrar()" type="button" value="Cifrar" /> 
-        <br><br>
-        <input class="ButtonV" id="UnEncrypt" onclick="descifrar()" type="button" value="Descifrar" /> 
-        <span class="h1v">Resultado</span>
-        <textarea class="textareaV" id="resultado" rows="5"></textarea></form>
+<body background="./Vid/shuba.jpg">
+    <div class="container">
+        <div class="row"> 
+            <div class="col-sm-4">
+                <form class="formVigenere">
+                    <span class="h1v"><h1>VIGGENERE</h1> 
+                        <br> Frase a desencriptar:</span>
+                    <textarea class="textareaV" id="InputText" rows="5"></textarea> 
+                    <span class="h1v">Clave</span> 
+                    <input class="TextV" id="PassWord" type="text" /> 
+                    <input class="ButtonV" id="Encrypt" onclick="RebuildString(Encriptar(true))" type="button" value="Cifrar" /> 
+                    <br><br>
+                    <input class="ButtonV" id="UnEncrypt" onclick="RebuildString(Encriptar(false))" type="button" value="Descifrar" /> 
+                    <span class="h1v">Resultado</span>
+                    <textarea class="textareaV" id="Result" rows="5"></textarea></form>
+            </div>
+            <div class="col-sm-4">
+                <div align="center" class="embed-responsive embed-responsive-16by9">
+                    <video src="./Vid/Subaru and Duck Dance - Hey Ya (Full).mp4" autoplay muted ></video>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <form class="formCesar">
+                    <span class="h1v"><h1>CESAR</h1> 
+                        <br> Frase a desencriptar:</span>
+                    <textarea class="textareaV" id="cadena" rows="5"></textarea> 
+                    <input class="ButtonV" id="Encrypt" onclick="cifrar()" type="button" value="Cifrar" /> 
+                    <br><br>
+                    <input class="ButtonV" id="UnEncrypt" onclick="descifrar()" type="button" value="Descifrar" /> 
+                    <span class="h1v">Resultado</span>
+                    <textarea class="textareaV" id="resultado" rows="5"></textarea></form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -99,16 +99,26 @@ function validarDES(){
                 alert("La llave debe tener 24 caracteres, tienes hasta ahora "+ password.length );
             }
             else{
-                //alert("vas bien");
-                descifrar(destexto,password);
+                alert(descifrad);
+                if(descifrad=="Descifrar"){
+                    //alert("vas bien");
+                    descifrar(destexto,password);
+                }else{
+                    alert("algo hizo mal");
+                }
             }
         }else if(AES=="AES 256"){
             if(password.length!=32){
                 alert("La llave debe tener 32 caracteres, tienes hasta ahora "+ password.length );
             }
             else{
-                //alert("vas bien");
-                descifrar(destexto,password);
+                alert(descifrad);
+                if(descifrad=="Descifrar"){
+                    //alert("vas bien");
+                    descifrar(destexto,password);
+                }else{
+                    alert("algo hizo mal");
+                }
             }
         }
 

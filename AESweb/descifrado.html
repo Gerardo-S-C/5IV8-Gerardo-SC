@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--Boxicons-->
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <title>DESCIFRADOS</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Descifrado AES</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <br>
+  <form>
+    <div class="d-flex justify-content-around">
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-fill bd-highlight">
+          <label for="formFile" class="form-label">Ingrese el .txt cifrado</label>
+          <input class="form-control" type="file" id="formFile">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-evenly">
+      <div class="p-2 flex-fill bd-highlight">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Texto a descifrar</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="destexto" name="destexto"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-evenly">
+      <div class="p-2 flex-fill bd-highlight">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+      </div>
+    </div>
+
+    <fieldset class="d-flex justify-content-around">
+      <legend class="col-form-label col-sm-2 pt-0">Tipo de descifrado AES</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="AES256" name="AES" value="AES 128">
+          <label class="form-check-label" for="gridRadios1">
+            AES 128
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="AES256" name="AES" value="AES 192">
+          <label class="form-check-label" for="gridRadios2">
+            AES 192
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="AES256" name="AES" value="AES 256">
+          <label class="form-check-label" for="gridRadios3">
+            AES 256
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <input type="button" onclick="validarDES()" id="descifrar" class="btn btn-primary" value="Descifrar">
+    </div>
+  </form>
+  <br>
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Texto descifrado sin formato</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="destexto1" name="destexto1"></textarea>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Texto descifrado con formato</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="destexto2" name="destexto2"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <a href="cifrado.html" class="btn btn-primary" aria-current="true">
+      Cifrar
+    </a>
+  </div>
+
+
+  <script>
+    function leerArchivo(e) {
+      var archivo = e.target.files[0];
+      if (!archivo) {
+        return;
+      }
+      var lector = new FileReader();
+      lector.onload = function (e) {
+        var contenido = e.target.result;
+        mostrarContenido(contenido);
+      };
+      lector.readAsText(archivo);
+    }
+
+    function mostrarContenido(contenido) {
+      var elemento = document.getElementById('destexto');
+      elemento.innerHTML = contenido;
+    }
+    document.getElementById('formFile').addEventListener('change', leerArchivo, false);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="./js/validacion.js"></script>
+</body>
+
+</html>

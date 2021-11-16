@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Firma con una pagina web</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Subir el .txt para cifrar</h1>
+        <form method="post" action="ClavePublica" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Formulario de subida</legend>
+                <input type="file" name="files" id="files" multiple/>
+                <br><br>
+                <legend>Contraseña para el archivo cifrado</legend>
+                <input type="password" name="password" >
+                <br><br>
+                <button type="submit">Subir</button>    
+            </fieldset>
+            <h2>El archivo se cargará con la firma</h2>
+        </form>
+    </body>
+</html>

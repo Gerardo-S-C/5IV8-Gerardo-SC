@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Firmar</servlet-name>
+        <servlet-class>Servlet.Firmar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClavePublica</servlet-name>
+        <servlet-class>Servlet.ClavePublica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Verificar</servlet-name>
+        <servlet-class>Servlet.Verificar</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Firmar</servlet-name>
+        <url-pattern>/Firmar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClavePublica</servlet-name>
+        <url-pattern>/ClavePublica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Verificar</servlet-name>
+        <url-pattern>/Verificar</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

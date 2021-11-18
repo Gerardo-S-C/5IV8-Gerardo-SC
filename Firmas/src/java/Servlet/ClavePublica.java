@@ -18,8 +18,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import Control.Control;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -36,15 +39,20 @@ public class ClavePublica extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    public ClavePublica(){
+        super();
+    }
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String password = request.getParameter("password");
-            String file = request.getParameter("files");
+            String file = request.getParameter("contenido");
             Control con = new Control();
-            
+            System.out.println("contenido: "+file+"\n"+password);
             con.generarClave(password);
             con.exportarClavePublica(file,password);
         }
@@ -82,6 +90,22 @@ public class ClavePublica extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+            
+            PrintWriter out = response.getWriter();
+            out.print("ESDGSFG");
+            String pass = request.getParameter("password");
+            Part archivo = request.getPart("files");
+            InputStream is = archivo.getInputStream();
+            File f = new File("C:/Users/illum/Desktop/5IV8-Gerardo-Sandoval-C/Firmas/web/TXT/"+"clave.key");
+            FileOutputStream ous = new FileOutputStream(f);
+            int dato  = is.read();
+            while(dato != -1){
+                ous.write(dato);
+                Control con = new Control();
+                dato=is.read();
+            }
+            
+            
         } catch (Exception ex) {
             Logger.getLogger(ClavePublica.class.getName()).log(Level.SEVERE, null, ex);
         }

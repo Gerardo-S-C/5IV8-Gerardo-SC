@@ -21,13 +21,51 @@ and open the template in the editor.
         <form method="post" action="ClavePublica" enctype="multipart/form-data">
             <fieldset>
                 <legend>Formulario de subida</legend>
-                <input type="file" name="files" id="files" multiple/>
+                <input type="file" id="files" name="files" onchange="cargarArchivo(this)" />
                 <br><br>
                 <legend>Contraseña para el archivo cifrado</legend>
                 <input type="password" name="password" >
                 <br><br>
-                <button type="submit">Subir</button>    
+                <button type="submit">Subir</button>
             </fieldset>
+                <script>
+                    function leerArchivo(e) {
+                    var archivo = e.target.files[0];
+                    if (!archivo) {
+                      return;
+                    }
+                    var lector = new FileReader();
+                    lector.onload = function(e) {
+                      var contenido = e.target.result;
+                      mostrarContenido(contenido);
+                    };
+                    lector.readAsText(archivo);
+                  }
+                  function cargarArchivo(e){
+                      var file = e.files[0];
+                        var objHidden = document.formulario.nombre;
+                        objHidden.value = file.name;
+                        document.formulario.action = "ClavePublica";
+                        document.formulario.submit();
+                  }
+                  function mostrarContenido(contenido) {
+                    var elemento = document.getElementById('contenido-archivo');
+                    elemento.innerHTML = contenido;
+                  }
+                  function enviarTexto(){
+                      var texto=document.getElementById("contenido-archivo").value;
+                      document.getElementById("contenido-archivo2").value=texto;
+                  }
+                  document.getElementById('files')
+                    .addEventListener('change', leerArchivo, false);
+                </script>
+                <fieldset>
+                    <pre id="contenido-archivo"></pre>
+                    <input type="button" id="botonText" onclick="enviarTexto()" value="De clic para leer el archivo">
+
+                        <h3>Contenido del archivo:</h3>
+                    <input type="text" id="contenido-archivo2" name="contenido" readonly="readonly">
+                </fieldset>    
             <h2>El archivo se cargará con la firma</h2>
         </form>
     </body>
